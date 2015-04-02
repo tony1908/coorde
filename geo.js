@@ -14,7 +14,8 @@ function geoFindMe() {
 
     var img = new Image();
     img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
-
+    dis = getDistanceFromLatLonInKm(latitude, longitude, 19.459359, -99.189259);
+    output.innerHTML ='<p>Distance is' + dis + '</p>'
     output.appendChild(img);
   };
 
@@ -22,14 +23,7 @@ function geoFindMe() {
     output.innerHTML = "Unable to retrieve your location";
   };
 
-  output.innerHTML = "<p>Locating…</p>";
-
-  navigator.geolocation.getCurrentPosition(success, error);
-}
-
-
-
-function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+  function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(lat2-lat1);  // deg2rad below
   var dLon = deg2rad(lon2-lon1); 
@@ -46,3 +40,12 @@ function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
 function deg2rad(deg) {
   return deg * (Math.PI/180)
 }
+
+  output.innerHTML = "<p>Locating…</p>";
+
+
+  navigator.geolocation.getCurrentPosition(success, error);
+}
+
+
+
