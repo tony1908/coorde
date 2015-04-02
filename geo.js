@@ -1,5 +1,6 @@
 function geoFindMe() {
   var output = document.getElementById("out");
+  var output2 = document.getElementById("dis")
 
   if (!navigator.geolocation){
     output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
@@ -15,7 +16,7 @@ function geoFindMe() {
     var img = new Image();
     img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
     dis = getDistanceFromLatLonInKm(latitude, longitude, 19.459359, -99.189259);
-    output.innerHTML ='<h1>Distance is ' + dis + '</h1>'
+    output2.innerHTML ='<h1>Distance is ' + dis + '</h1>'
     output.appendChild(img);
   };
 
