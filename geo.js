@@ -30,7 +30,7 @@ function geoFindMe() {
 function coorde(){
 	var output2 = document.getElementById("demo");
 	var coor = navigator.geolocation.getCurrentPosition();
-	 output2.innerHTML = '<p>Latitude is ' +coor+ '°</p>';
+	 output2.innerHTML = '<p>Latitude is ' +coor.position.coords.latitude+ '°</p>';
 }
 
 var coor = navigator.geolocation.getCurrentPosition();
