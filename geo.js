@@ -27,22 +27,7 @@ function geoFindMe() {
   navigator.geolocation.getCurrentPosition(success, error);
 }
 
-function coorde(){
-	var output2 = document.getElementById("demo");
-	var coor = navigator.geolocation.getCurrentPosition(
-  function success(position) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
 
-    output2.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
-
-    var img = new Image();
-    img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
-
-    output.appendChild(img);
-  };);
-	 
-}
 
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
   var R = 6371; // Radius of the earth in km
